@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cd860c5-857d-4af4-ab5e-d781eb266397" name="Default Changelist" comment="" />
+    <list default="true" id="0cd860c5-857d-4af4-ab5e-d781eb266397" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReinforcementWalker2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReinforcementWalker2D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myModules/BipedEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/myModules/BipedEnv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weights/myWeightsPos6Forces.we" beforeDir="false" afterPath="$PROJECT_DIR$/weights/myWeightsPos6Forces.we" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weights/myWeightsPos6weights.we" beforeDir="false" afterPath="$PROJECT_DIR$/weights/myWeightsPos6weights.we" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +20,9 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1X7KAUp6OfRqVHwIAs1bpQ7oAMz" />
   <component name="PropertiesComponent">
@@ -37,27 +46,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.ReinforcementWalker2D">
-    <configuration name="Agent" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Application" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/myModules" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/myModules/Agent.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="BipedEnv" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Application" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -121,6 +109,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="humtest (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="D:/Bachelorarbeit/Hauptprojekt/Application/myModules" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:/Bachelorarbeit/Hauptprojekt/Application/myModules/humtest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="humtest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Application" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,10 +154,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.ReinforcementWalker2D" />
-        <item itemvalue="Python.actionsCreate" />
+        <item itemvalue="Python.humtest (1)" />
         <item itemvalue="Python.BipedEnv" />
+        <item itemvalue="Python.actionsCreate" />
         <item itemvalue="Python.humtest" />
-        <item itemvalue="Python.Agent" />
       </list>
     </recent_temporary>
   </component>
@@ -165,6 +174,19 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -175,7 +197,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ReinforcementWalker2D.py</url>
-          <line>208</line>
+          <line>209</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -205,7 +227,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ReinforcementWalker2D.py</url>
-          <line>190</line>
+          <line>191</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>

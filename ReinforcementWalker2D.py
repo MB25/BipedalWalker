@@ -150,6 +150,7 @@ class ReinforcementWalker2D():
             totalReward = 0
 
             done = False
+            print("gui is shown ", self.showGui)
             envo = BipedEnv.BipedEnv(self.showGui, JOINTNAMES)
 
             state = envo.resetEnv()
@@ -228,13 +229,13 @@ class ReinforcementWalker2D():
                         rightSidePositions = 0.99 * maxTargetPosQs[0][maxTargetPosIndex]
                         rightSideTorques = 0.99 * maxTorqueQs[0][maxTorquesIndex]
 
-                        dist1 = envo.getTorsoY()
-                        if (dist1 < 0):
-                            abs(reward) * -1
 
+                        #    print("rew ", reward)
+                       #     print("rights ", rightSidePositions)
+                       #     print("rights t ", rightSideTorques)
                         maxTargetPosQs[0][maxTargetPosIndex] = reward + rightSidePositions
                         maxTorqueQs[0][self.myActions[0][0].index(action_t[0])] = reward + rightSideTorques
-
+                      #  print("mtposqs ",   maxTargetPosQs[0][maxTargetPosIndex])
                         totalLossPos += networkPositions.model.train_on_batch(state_t1, maxTargetPosQs)  # train both atst?
 
                         frameNow = envo.targetFrames[envo.currentTargetTargetFrameIndex]
@@ -243,9 +244,9 @@ class ReinforcementWalker2D():
                         frameNow = np.reshape(frameNow, (1, netWorkForces.n_inputs,))
 
                         totalLossTorque += netWorkForces.model.train_on_batch(frameNow, maxTorqueQs)
+                        totalReward+=reward
 
-
-            decrement = 1 / 100
+            decrement = 1 / self.episodes
             dif = agent.start_epsilon - decrement
 
             if (dif > agent.end_epsilon):
@@ -310,9 +311,13 @@ if __name__ == '__main__':
     print("num of args ", len(sys.argv))
     if(len(listArgs)==4):
         argsEpisodes = listArgs[1]
-        argsShow    = listArgs[2]
-        argsTrain = listArgs[3]
-
-    walker = ReinforcementWalker2D(argsEpisodes, argsShow, argsTrain)
+        print("setting args ")
+        if(listArgs[2]=="True"):
+            argsShow = True
+        if(listArgs[3]=="True"):
+            argsTrain = True
+    print(sys.argv)
+    walker = ReinforcementWalker2D(int(argsEpisodes), argsShow, argsTrain)
+    print("eps ", walker.episodes)
     walker.startTraining()
     print("done")

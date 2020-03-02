@@ -49,7 +49,7 @@ class BipedEnv():
         self.jointNames = jointNames
         self.jointNames = jointNames
         self.currentTargetTargetFrameIndex = -1
-        if (showGui):
+        if (showGui == True):
             #p.connect(p.GUI)
             p.connect(p.GUI)
             print("gui")
@@ -59,13 +59,11 @@ class BipedEnv():
         setupWorld(self)
         self.setupJoints()
 
-    def getTorsoY(self): #2 = torso
+    def getTorsoY(self):  # 2 = torso
         right = p.getLinkState(self.botId, 5)
         left = p.getLinkState(self.botId, 8)
-        if (right > left):
-            return right[0][1]
-        else:
-            return left[0][1]
+        torso_to_z = p.getLinkState(self.botId, 2)
+        return torso_to_z[0][1]
 
     def getTorsoZ(self): #2 = torso
         return p.getLinkState(self.botId, 2)[0][2]
@@ -106,7 +104,7 @@ class BipedEnv():
         subJointIds = self.jointIds
 
         framesCount = 0
-        maxCount = 240/12
+        maxCount = 240/4
         subTorques = []
 
         c = 0
@@ -140,14 +138,18 @@ class BipedEnv():
             p.setGravity(0, 0, GRAVITY)
             p.setJointMotorControlArray(self.botId,subJointIds,  p.TORQUE_CONTROL, forces=subTorques)
             p.setJointMotorControl2(self.botId, 2, p.POSITION_CONTROL, targetPosition=bodyForce)
-            p.setJointMotorControl2(self.botId, 0, p.POSITION_CONTROL, targetPosition=hipForce/120)
-
+            if(framesCount % 30 == 0):
+                targetPos = self.getTorsoY() + hipForce
+                p.setJointMotorControl2(self.botId, 0, p.POSITION_CONTROL, targetPosition=targetPos)
             p.stepSimulation()
 
             framesCount += 1
 
         targetVels = [0]*len(subJointIds)
         p.setJointMotorControlArray(self.botId, subJointIds, p.VELOCITY_CONTROL, targetVelocities = targetVels)
+        p.setJointMotorControl2(self.botId, 0, p.VELOCITY_CONTROL, targetVelocity = 0)
+        p.setJointMotorControl2(self.botId, 2, p.VELOCITY_CONTROL, targetVelocity = 0)
+
 
 
 
