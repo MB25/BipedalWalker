@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cd860c5-857d-4af4-ab5e-d781eb266397" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReinforcementWalker2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReinforcementWalker2D.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myModules/BipedEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/myModules/BipedEnv.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -313,7 +313,7 @@ class ReinforcementWalker2D():
 
 if __name__ == '__main__':
     argsEpisodes = 100
-    argsShow = True
+    argsShow = False
     argsTrain = False
     listArgs = sys.argv
 
