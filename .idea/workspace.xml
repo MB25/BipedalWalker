@@ -5,8 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReinforcementWalker2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReinforcementWalker2D.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myModules/BipedEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/myModules/BipedEnv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights/myWeightsPos6Forces.we" beforeDir="false" afterPath="$PROJECT_DIR$/weights/myWeightsPos6Forces.we" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights/myWeightsPos6weights.we" beforeDir="false" afterPath="$PROJECT_DIR$/weights/myWeightsPos6weights.we" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

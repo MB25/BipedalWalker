@@ -212,10 +212,13 @@ class ReinforcementWalker2D():
                         rightSidePositions = 0.99 * targetsPos[0][targetPosIndex]
                         rightSideTorques = 0.99 * targetsTorque[0][highestTargetIndexTorque]
 
-                        dist1 = envo.getTorsoY()
-                        if (dist1 < 0):
-                            abs(reward) * -1
-
+                        distance = envo.getTorsoY()
+                        if (distance < 0):
+                           # print("reward before", reward)
+                            reward = abs(reward) * -1
+                            #print("reward after ", reward)
+                        else:
+                            reward = abs(reward)
                         targetsPos[0][targetPosIndex] = reward + rightSidePositions
                         targetsTorque[0][self.myActions[0][0].index(action_t[0])] = reward + rightSideTorques
 
@@ -245,7 +248,12 @@ class ReinforcementWalker2D():
 
                         totalLossTorque += netWorkForces.model.train_on_batch(frameNow, maxTorqueQs)
                         totalReward+=reward
-
+                        if (distance < 0):
+                         #   print("totalR before",totalReward)
+                            totalReward = abs(totalReward) * -1
+                          #  print("total reward after ", totalReward)
+                        else:
+                            totalReward = abs(totalReward)
             decrement = 1 / self.episodes
             dif = agent.start_epsilon - decrement
 
@@ -256,6 +264,7 @@ class ReinforcementWalker2D():
             dist = envo.getTorsoY()
             distances.append(dist)
             losses.append(totalLossPos)
+
             totalRewardPerEpisode.append(totalReward)
             timeDif = time() - prevtime
             prevtime = time()
@@ -304,7 +313,7 @@ class ReinforcementWalker2D():
 
 if __name__ == '__main__':
     argsEpisodes = 100
-    argsShow = False
+    argsShow = True
     argsTrain = False
     listArgs = sys.argv
 

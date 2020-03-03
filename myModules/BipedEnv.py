@@ -104,7 +104,7 @@ class BipedEnv():
         subJointIds = self.jointIds
 
         framesCount = 0
-        maxCount = 240/4
+        maxCount = 240/8
         subTorques = []
 
         c = 0
@@ -139,7 +139,9 @@ class BipedEnv():
             p.setJointMotorControlArray(self.botId,subJointIds,  p.TORQUE_CONTROL, forces=subTorques)
             p.setJointMotorControl2(self.botId, 2, p.POSITION_CONTROL, targetPosition=bodyForce)
             if(framesCount % 30 == 0):
-                targetPos = self.getTorsoY() + hipForce
+                targetPos = self.getTorsoY() + hipForce*50
+            #    print("current is ", self.getTorsoY())
+             #   print("targetPos ", targetPos)
                 p.setJointMotorControl2(self.botId, 0, p.POSITION_CONTROL, targetPosition=targetPos)
             p.stepSimulation()
 
