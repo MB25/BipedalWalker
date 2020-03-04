@@ -256,7 +256,9 @@ class ReinforcementWalker2D():
                             totalReward = abs(totalReward)
             decrement = 1 / self.episodes
             dif = agent.start_epsilon - decrement
-
+            if(episode%100 == 0):
+                networkPositions.model.save_weights("weights/myWeightsPos6weightsBackedUp.we")
+                netWorkForces.model.save_weights("weights/myWeightsPos6ForcesBackedUp.we")
             if (dif > agent.end_epsilon):
                 agent.start_epsilon = dif
             else:

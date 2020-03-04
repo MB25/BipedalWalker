@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cd860c5-857d-4af4-ab5e-d781eb266397" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/weights/backup/backup_4030/myWeightsPos6Forces.we" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weights/backup/backup_4030/myWeightsPos6weights.we" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weights/timed/myWeightsPos6Forces4-3__1_52_32.we" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weights/timed/myWeightsPos6weights4-3__1_52_32.we" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReinforcementWalker2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReinforcementWalker2D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weights/myWeightsPos6Forces.we" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weights/myWeightsPos6weights.we" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
