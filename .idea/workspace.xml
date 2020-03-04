@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cd860c5-857d-4af4-ab5e-d781eb266397" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weights/myWeightsPos6Forces.we" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weights/myWeightsPos6weights.we" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weights/timed/myWeightsPos6Forces4-3__19_1_58.we" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weights/timed/myWeightsPos6Forces4-3__20_17_37.we" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weights/timed/myWeightsPos6weights4-3__19_1_58.we" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weights/timed/myWeightsPos6weights4-3__20_17_37.we" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReinforcementWalker2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReinforcementWalker2D.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/actions.action" beforeDir="false" afterPath="$PROJECT_DIR$/act2ions.action" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myModules/Agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/myModules/Agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myModules/BipedEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/myModules/BipedEnv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myModules/Dqn.py" beforeDir="false" afterPath="$PROJECT_DIR$/myModules/Dqn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights/myWeightsPos6ForcesBackedUp.we" beforeDir="false" afterPath="$PROJECT_DIR$/weights/myWeightsPos6ForcesBackedUp.we" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights/myWeightsPos6weightsBackedUp.we" beforeDir="false" afterPath="$PROJECT_DIR$/weights/myWeightsPos6weightsBackedUp.we" afterDir="false" />
-    </list>
+    <list default="true" id="0cd860c5-857d-4af4-ab5e-d781eb266397" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
