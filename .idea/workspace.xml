@@ -2,14 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cd860c5-857d-4af4-ab5e-d781eb266397" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/weights/backup/backup_4030/myWeightsPos6Forces.we" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weights/backup/backup_4030/myWeightsPos6weights.we" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weights/timed/myWeightsPos6Forces4-3__1_52_32.we" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weights/timed/myWeightsPos6weights4-3__1_52_32.we" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weights/myWeightsPos6Forces.we" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weights/myWeightsPos6weights.we" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weights/timed/myWeightsPos6Forces4-3__19_1_58.we" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weights/timed/myWeightsPos6Forces4-3__20_17_37.we" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weights/timed/myWeightsPos6weights4-3__19_1_58.we" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/weights/timed/myWeightsPos6weights4-3__20_17_37.we" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReinforcementWalker2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/ReinforcementWalker2D.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights/myWeightsPos6Forces.we" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights/myWeightsPos6weights.we" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/actions.action" beforeDir="false" afterPath="$PROJECT_DIR$/act2ions.action" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myModules/Agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/myModules/Agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myModules/BipedEnv.py" beforeDir="false" afterPath="$PROJECT_DIR$/myModules/BipedEnv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myModules/Dqn.py" beforeDir="false" afterPath="$PROJECT_DIR$/myModules/Dqn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weights/myWeightsPos6ForcesBackedUp.we" beforeDir="false" afterPath="$PROJECT_DIR$/weights/myWeightsPos6ForcesBackedUp.we" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weights/myWeightsPos6weightsBackedUp.we" beforeDir="false" afterPath="$PROJECT_DIR$/weights/myWeightsPos6weightsBackedUp.we" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,6 +120,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="humanoid_running" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Application" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="D:/bullet3/examples/pybullet/tensorflow" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:/bullet3/examples/pybullet/tensorflow/humanoid_running.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="humtest (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Application" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -133,34 +162,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="humtest" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Application" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/myModules" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/myModules/humtest.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.ReinforcementWalker2D" />
-        <item itemvalue="Python.humtest (1)" />
         <item itemvalue="Python.BipedEnv" />
+        <item itemvalue="Python.humtest (1)" />
+        <item itemvalue="Python.humanoid_running" />
         <item itemvalue="Python.actionsCreate" />
-        <item itemvalue="Python.humtest" />
       </list>
     </recent_temporary>
   </component>
@@ -176,6 +184,16 @@
       <updated>1580391549843</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -200,12 +218,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ReinforcementWalker2D.py</url>
-          <line>209</line>
+          <line>213</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ReinforcementWalker2D.py</url>
-          <line>109</line>
+          <line>113</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -225,12 +243,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ReinforcementWalker2D.py</url>
-          <line>123</line>
+          <line>127</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ReinforcementWalker2D.py</url>
-          <line>191</line>
+          <line>195</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>

@@ -1,6 +1,7 @@
 import pybullet as p
 import numpy as np
 import pybullet_data
+import time
 
 GRAVITY = -9.7
 timestep = 1 / 240  # fps
@@ -42,7 +43,8 @@ class BipedEnv():
                     ]
 
 
-    def __init__(self, showGui = False, jointNames = []):
+    def __init__(self, showGui = False, jointNames = [], c = 0):
+
         self.repeatCounter = 0
         self.prevX = 0
         self.prevY = 0
@@ -51,17 +53,22 @@ class BipedEnv():
         self.currentTargetTargetFrameIndex = -1
         if (showGui == True):
             #p.connect(p.GUI)
-            p.connect(p.GUI)
+            if(c == -1):
+                print("call gui gui")
+                p.connect(p.GUI)
+            else:
+                print("call gui dire")
+                p.connect(p.DIRECT)
             print("gui")
         else:
+
             p.connect(p.DIRECT)
             print("no gui")
         setupWorld(self)
         self.setupJoints()
 
     def getTorsoY(self):  # 2 = torso
-        right = p.getLinkState(self.botId, 5)
-        left = p.getLinkState(self.botId, 8)
+
         torso_to_z = p.getLinkState(self.botId, 2)
         return torso_to_z[0][1]
 
@@ -104,61 +111,42 @@ class BipedEnv():
         subJointIds = self.jointIds
 
         framesCount = 0
-        maxCount = 240/8
+        maxCount = 240/4
         subTorques = []
 
         c = 0
         for t in torques:
             if(c>=0):
-                subTorques.append(t*2.5)
+                subTorques.append(t*3)
             c+=1
 
         while (framesCount <=  maxCount):
+
             currentPos = []
             subtargetFrame = []
-            for jointId in subJointIds:
-                posState = p.getJointState(self.botId, jointId)[0]
-                currentPos.append(round(posState,3))
-                #rhip, rknee, rtoes, lhip, lknee, ltoes
-                id = -1
-                if(jointId == 3): #r hip
-                    id = 0
-                elif(jointId==4): #rknee
-                    id = 1
-                elif(jointId==5): #rankle
-                    id = 2
-                elif(jointId==6): #lhip
-                    id = 3
-                elif(jointId ==7): #lknee
-                    id = 4
-                elif(jointId ==8): #lknee
-                    id = 5
 
-                subtargetFrame.append(self.targetFrames[self.currentTargetTargetFrameIndex][id])
             p.setGravity(0, 0, GRAVITY)
-            p.setJointMotorControlArray(self.botId,subJointIds,  p.TORQUE_CONTROL, forces=subTorques)
+            c = 0
+            p.setGravity(0, 0, GRAVITY)
+            p.setJointMotorControlArray(self.botId, subJointIds, p.TORQUE_CONTROL, forces=subTorques)
             p.setJointMotorControl2(self.botId, 2, p.POSITION_CONTROL, targetPosition=bodyForce)
-            if(framesCount % 30 == 0):
-                targetPos = self.getTorsoY() + hipForce*50
-            #    print("current is ", self.getTorsoY())
-             #   print("targetPos ", targetPos)
-                p.setJointMotorControl2(self.botId, 0, p.POSITION_CONTROL, targetPosition=targetPos)
-            p.stepSimulation()
+            if (framesCount % 30 == 0):
+                targetPos = self.getTorsoY() + hipForce*1.5
 
+                p.setJointMotorControl2(self.botId, 0, p.POSITION_CONTROL, targetPosition=targetPos)
+
+            p.stepSimulation()
             framesCount += 1
 
         targetVels = [0]*len(subJointIds)
         p.setJointMotorControlArray(self.botId, subJointIds, p.VELOCITY_CONTROL, targetVelocities = targetVels)
-        p.setJointMotorControl2(self.botId, 0, p.VELOCITY_CONTROL, targetVelocity = 0)
-        p.setJointMotorControl2(self.botId, 2, p.VELOCITY_CONTROL, targetVelocity = 0)
-
-
 
 
 
 
     def closeEnv(self):
         self.paramIds = []
+
 
     def setupJoints(self):
         self.paramIds = []
@@ -172,11 +160,13 @@ class BipedEnv():
             print("jointname! ", jointName, " j ", j)
             if(jointName in self.jointNames):
                 self.jointIds.append(j)
+                p.setJointMotorControl2(self.botId, j, controlMode=p.VELOCITY_CONTROL, force=20)
 
         print("all joints: ", self.jointIds)
 
     def resetEnv(self):
         self.repeatCounter = 0
+
         setupWorld(self)
         return self.gatherObservations()
 
@@ -201,7 +191,7 @@ class BipedEnv():
             dif*=100
             dif = round(dif)
             jointVelocity = jointState[1]
-            jointPosIndex = dif%n_slices
+            jointPosIndex = dif % n_slices
 
             jointVelIndex = round(jointVelocity % n_slices)
 
@@ -262,11 +252,11 @@ def getReward(self, counter):
         return reward, done
     else:
         if(counter % 10) == 0:
-            diff = abs(self.getTorsoY() - self.prevY)
+            diff = self.getTorsoY() - self.prevY
             if (0 < diff):
                 reward += 10 + diff*100
             else:
-                reward = -50
+                reward -= -50
                 self.repeatCounter+=1
                 if(self.repeatCounter>5):
                     done = True

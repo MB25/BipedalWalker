@@ -22,4 +22,4 @@ class DQN():
         self.model = keras.Model(inputs=self.inputLayer, outputs=self.outputLayer)
 
 if __name__ == '__main__':
-    dqn = DQN(2,2)
+    print("hello world")

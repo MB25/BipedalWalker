@@ -24,7 +24,7 @@ class Agent():
 
     def __init__(self):
         self.start_epsilon = 0.9
-        self.end_epsilon = 0.1
+        self.end_epsilon = 0.05
         self.learning_rate = 0.05
         # order is torso_y, rhip, rknee, rtoes, lhip, lknee, ltoes
         self.targetFrames =    [[0.5236,0.0000,-0.0873,-0.5236,0.0000,0.0000],

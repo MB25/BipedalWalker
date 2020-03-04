@@ -51,36 +51,36 @@ class ReinforcementWalker2D():
 
     def loadActions(self):
 
-        with open("actions.action", "rb") as file:
-            try:
+        try:
+            with open("actions.action", "rb") as file:
                 self.myActions = json.loads(file.read())
-            except IOError as ioError:
-                list = [-100, -60, -20, 20, 60, 100]
-                li = itertools.product(list, repeat=6)
-                c = 0
-                helpArray = [[], [], []]
-                print("create instead")
-                firstHelp = []
-                lenOfList = 0
+        except IOError as ioError:
+            list = [-100, -60, -20, 20, 60, 100]
+            li = itertools.product(list, repeat=6)
+            c = 0
+            helpArray = [[], [], []]
+            print("create instead")
+            firstHelp = []
+            lenOfList = 0
 
-                for roll in li:
-                    firstHelp.append(roll)
-                    lenOfList += 1
-                helpArray[0].append(firstHelp)
-                firstHelp = []
-                i = 0
-                for i in range(lenOfList):
-                    firstHelp.append(random.uniform(-0.001, 0.001))
+            for roll in li:
+                firstHelp.append(roll)
+                lenOfList += 1
+            helpArray[0].append(firstHelp)
+            firstHelp = []
+            i = 0
+            for i in range(lenOfList):
+                firstHelp.append(random.uniform(-0.01, 0.01))
 
-                helpArray[1].append(firstHelp)
-                firstHelp = []
-                i = 0
-                for i in range(lenOfList):
-                    firstHelp.append(random.uniform(-0.15, 0.15))
+            helpArray[1].append(firstHelp)
+            firstHelp = []
+            i = 0
+            for i in range(lenOfList):
+                firstHelp.append(random.uniform(-0.15, 0.15))
 
-                helpArray[2].append(firstHelp)
-                c = 0
-                self.myActions = helpArray
+            helpArray[2].append(firstHelp)
+            c = 0
+            self.myActions = helpArray
 
 
 
@@ -93,6 +93,10 @@ class ReinforcementWalker2D():
 
     def startTraining(self):
         agent = Agent.Agent()
+        training = self.train  # if this is true, it will run training, if false it will load weights
+
+        if training == True:
+            agent.start_epsilon = agent.end_epsilon
 
         self.setUpEverything()
         self.loadActions()
@@ -103,7 +107,7 @@ class ReinforcementWalker2D():
 
 
         prevtime = starttime
-        training = self.train  # if this is true, it will run training, if false it will load weights
+
 
         lenFrames = len(agent.targetFrames)
 
@@ -124,7 +128,7 @@ class ReinforcementWalker2D():
         networkPositions.model.compile(loss='mse', optimizer=adam)
         netWorkForces.model.compile(loss='mse', optimizer=adam)
 
-        if (training == False):
+        if (training == True):
             try:
                 networkPositions.model.load_weights("weights/myWeightsPos6weights.we")
                 netWorkForces.model.load_weights("weights/myWeightsPos6Forces.we")
@@ -151,7 +155,7 @@ class ReinforcementWalker2D():
 
             done = False
             print("gui is shown ", self.showGui)
-            envo = BipedEnv.BipedEnv(self.showGui, JOINTNAMES)
+            envo = BipedEnv.BipedEnv(self.showGui, JOINTNAMES, c)
 
             state = envo.resetEnv()
             c += 1
@@ -214,15 +218,17 @@ class ReinforcementWalker2D():
 
                         distance = envo.getTorsoY()
                         if (distance < 0):
-                           # print("reward before", reward)
-                            reward = abs(reward) * -1
-                            #print("reward after ", reward)
+                           reward = reward * distance
+                           if(reward >0):
+                                reward = abs(reward) * -1
                         else:
-                            reward = abs(reward)
+                            reward = abs(reward) * distance
+
+
                         targetsPos[0][targetPosIndex] = reward + rightSidePositions
                         targetsTorque[0][self.myActions[0][0].index(action_t[0])] = reward + rightSideTorques
 
-                        totalLossPos += networkPositions.model.train_on_batch(state_t, targetsPos)  # train both atst?
+                        totalLossPos += networkPositions.model.train_on_batch(state_t, targetsPos)
 
                         frameNow = envo.targetFrames[envo.currentTargetTargetFrameIndex]
                         frameNow = np.array(frameNow)
@@ -233,13 +239,10 @@ class ReinforcementWalker2D():
                         rightSideTorques = 0.99 * maxTorqueQs[0][maxTorquesIndex]
 
 
-                        #    print("rew ", reward)
-                       #     print("rights ", rightSidePositions)
-                       #     print("rights t ", rightSideTorques)
                         maxTargetPosQs[0][maxTargetPosIndex] = reward + rightSidePositions
                         maxTorqueQs[0][self.myActions[0][0].index(action_t[0])] = reward + rightSideTorques
-                      #  print("mtposqs ",   maxTargetPosQs[0][maxTargetPosIndex])
-                        totalLossPos += networkPositions.model.train_on_batch(state_t1, maxTargetPosQs)  # train both atst?
+
+                        totalLossPos += networkPositions.model.train_on_batch(state_t1, maxTargetPosQs)
 
                         frameNow = envo.targetFrames[envo.currentTargetTargetFrameIndex]
 
@@ -248,12 +251,7 @@ class ReinforcementWalker2D():
 
                         totalLossTorque += netWorkForces.model.train_on_batch(frameNow, maxTorqueQs)
                         totalReward+=reward
-                        if (distance < 0):
-                         #   print("totalR before",totalReward)
-                            totalReward = abs(totalReward) * -1
-                          #  print("total reward after ", totalReward)
-                        else:
-                            totalReward = abs(totalReward)
+
             decrement = 1 / self.episodes
             dif = agent.start_epsilon - decrement
             if(episode%100 == 0):
