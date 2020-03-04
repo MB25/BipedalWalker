@@ -57,7 +57,7 @@ class BipedEnv():
                 print("call gui gui")
                 p.connect(p.GUI)
             else:
-                print("call gui dire")
+                print("call gui direct")
                 p.connect(p.DIRECT)
             print("gui")
         else:
